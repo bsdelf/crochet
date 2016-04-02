@@ -7,7 +7,7 @@ HOME_DIR=/usr/home
 pw_create_account ( ) {
     echo "Adding user $1 with password $1"
     mkdir -p ${BOARD_FREEBSD_MOUNTPOINT}${HOME_DIR}/$1
-    $PW -V ${BOARD_FREEBSD_MOUNTPOINT}/etc/ useradd -n $1 -s /bin/csh -g wheel -w yes -d ${HOME_DIR}/$1
+    $PW -V ${BOARD_FREEBSD_MOUNTPOINT}/etc/ useradd -n $1 -s /bin/csh -G wheel,operator -w yes -d ${HOME_DIR}/$1
 
     # Fetch the uid and gid from the target and use the numeric ids to set the ownership
     UGID=`$PW -V ${BOARD_FREEBSD_MOUNTPOINT}/etc/ usershow $1 | $AWK -F: '{ print $3 ":" $4 }'`
