@@ -3,7 +3,7 @@ UBLDR_LOADADDR=0x42000000
 SUNXI_UBOOT="u-boot-cubieboard2"
 SUNXI_UBOOT_BIN="u-boot.img"
 IMAGE_SIZE=$((1000 * 1000 * 1000))
-TARGET_ARCH=armv6
+TARGET_ARCH=armv6hf
 
 UBOOT_PATH="/usr/local/share/u-boot/${SUNXI_UBOOT}"
 
