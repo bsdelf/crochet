@@ -387,6 +387,7 @@ disk_ufs_create ( ) {
     NEW_UFS_DEVICE=/dev/${NEW_UFS_PARTITION}
 
     newfs ${NEW_UFS_DEVICE}
+    tunefs -t enable ${NEW_UFS_DEVICE}
     # Turn on Softupdates
     tunefs -n enable ${NEW_UFS_DEVICE}
     # Turn on SUJ with a minimally-sized journal.
